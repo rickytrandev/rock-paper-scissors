@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <section class="grid-container">
+        <aside class="sidebar left"></aside>
+        <main class="game-container">
+            <h1 class="title">Rock · Paper · Scissors</h1>
+            <h3 class="sub-title">Choose Your Game!</h3>
+
+            <section class="select-game-mode">
+                <div id="classic" class="game-mode-card">
+                    <h3>Classic</h3>
+                    <p>Choose between Squirtle, Bulbasaur, or Charmander.</p>
+                    <ul>
+                        <li>Squirtle beats Charmander, but loses against Bulbasaur</li>
+                        <li>Bulbasaur beats Squirtle, but loses against Charmander</li>
+                        <li>Charmander beats Bulbasar, but loses against Squirtle</li>
+                    </ul>
+                </div>
+                <div id="wild" class=" game-mode-card">
+                    <h3>Wild</h3>
+                    <p>Choose between Squirtle, Bulbasaur, or Charmander, Pikachu and Geodude.</p>
+                    <ul>
+                        <li>Squirtle beats Charmander and Geodude, but loses against Bulbasaur and Pikachu </li>
+                        <li>Bulbasaur beats Squirtle, but loses against Charmander</li>
+                        <li>Charmander beats Bulbasar, but loses against Squirtle</li>
+                        <li>Pikachu beats Squirtle, but loses against Geodude</li>
+                        <li>Geodude beats Pikachu, but loses against Squirtle</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section  class="grid-container-sprites classic hidden ">
+            <img id="squirtle" src="assets/squirtle.png" alt="squirtle sprite">
+            <img id="bulbasaur" src="assets/bulbasaur.png" alt="bulbasaur sprite">
+            <img id="charmander" src="assets/charmander.png" alt="charmander sprite">
+            </section>
+
+            <section class="grid-container-sprites wild hidden ">
+            <img id="squirtle" src="assets/squirtle.png" alt="squirtle sprite">
+            <img id="bulbasaur" src="assets/bulbasaur.png" alt="bulbasaur sprite">
+            <img id="charmander" src="assets/charmander.png" alt="charmander sprite">
+            <img id="pikachu" src="assets/pikachu.png" alt="pikachu sprite">
+            <img id="geodude" src="assets/geodude.png" alt="geodude sprite">
+            </section>
+        </main>
+        <aside class="sidebar right"></aside>
+    </section>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

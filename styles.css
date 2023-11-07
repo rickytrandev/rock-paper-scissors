@@ -1,0 +1,89 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #8bd5ee;
+    background-color: black;
+}
+.grid-container {
+    display: grid;
+    gap: .5em;
+    grid-template-columns: 2fr 4fr 2fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+}
+.sidebar {
+    height: 100vh;
+    background-color: #085a73;
+    border: 5px solid #7b2941;
+    border-radius: 20px;
+}
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #085a73;
+    border: 5px solid #c5395a;
+    border-radius: 20px;
+}
+
+.select-game-mode {
+
+}
+
+h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: xx-large;
+    margin: 15px;
+}
+p {
+    text-align: center;
+    margin-top: 0;
+}
+
+h3 {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+li {
+    font-size: small;
+    padding-right: 10px;
+}
+
+img {
+    width: 120px;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+.game-mode-card {
+    width: 400px;
+    height: 300px;
+    margin-bottom: 20px;
+    background-color: #7b2941;
+    border-radius: 20px;
+}
+
+.grid-container-sprites {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+  }
+
+  #pikachu {
+    grid-column: 1/3;
+  }
+
+  #geodude {
+    margin-top: 35px;
+  }
