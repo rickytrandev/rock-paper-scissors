@@ -9,8 +9,11 @@ gameContainer.addEventListener('click', handleEvent)
 window.addEventListener('load', createGame())
 
 function handleEvent(event) {
+    // if (event.target.id) {
+        
+    // }
     var id = event.target.id
-    if (id === 'squirtle' || id === 'bulbasaur' || id === 'charmander'){
+    if (id === 'squirtle' || id === 'bulbasaur' || id === 'charmander' || id === 'pikachu' || id === 'geodude'){
         switch (id) {
             case 'squirtle':
                 currentGame.playerChoice = 'squirtle'
@@ -23,6 +26,14 @@ function handleEvent(event) {
             case 'charmander':
                 currentGame.playerChoice = 'charmander'
                 break;
+                
+            case 'pikachu':
+                currentGame.playerChoice = 'pikachu'
+                break;
+
+            case 'geodude':
+                currentGame.playerChoice = 'geodude'
+                break;
         }
         checkWin()
         return
@@ -32,6 +43,8 @@ function handleEvent(event) {
         show(classicMode)
         hide(gameModes)
         currentGame.gameType = 'classic'
+        currentGame.gameChoices = ['squirtle','bulbasaur', 'charmander']
+        botChoice(currentGame)
         subTitle.innerText = 'Choose Your Pokémon!'
         return
     } 
@@ -40,6 +53,8 @@ function handleEvent(event) {
         show(wildMode)
         hide(gameModes)
         currentGame.gameType = 'wild'
+        currentGame.gameChoices = ['squirtle','bulbasaur', 'charmander', 'pikachu', 'geodude']
+        botChoice(currentGame)
         subTitle.innerText = 'Choose Your Pokémon!'
         return
     }
@@ -70,6 +85,7 @@ function createGame(player, bot) {
         player: player,
         bot: bot,
         gameType: '',
+        gameChoices: [],
         playerChoice: '',
         botChoice: '',
     }
@@ -77,65 +93,98 @@ function createGame(player, bot) {
 }
 
 function checkWin() {
-    console.log("heyo");
     switch (currentGame.playerChoice) {
         case 'charmander':
             if(currentGame.botChoice === 'squirtle') {
                 // Player lose
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this battle.`)
                 // Bot + 1 win
+                currentGame.bot.wins += 1
                 // Announce loss
                 // Reset game
+                resetGame()
+                return
             }
             if(currentGame.botChoice === 'bulbasaur') {
                 // Player win
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this battle!`)
                 // Player +1 win
+                currentGame.player.wins += 1
                 // Announce win
                 // Reset game
+                resetGame()
+                return
             }
             if(currentGame.botChoice === 'charmander') {
                 // draw
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. It's a draw.`)
                 // Announce draw
                 // Reset game
+                resetGame()
+                return
             } 
             break;
 
         case 'squirtle':
             if(currentGame.botChoice === 'squirtle') {
                 // draw
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. It's a draw.`)
                 // Announce draw
                 // Reset game
+                resetGame()
+                return
             }
             if(currentGame.botChoice === 'bulbasaur') {
                 // Player lose
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this battle.`)
                 // Bot + 1 win
+                currentGame.bot.wins += 1
                 // Announce loss
                 // Reset game
+                resetGame()
+                return
             }
             if(currentGame.botChoice === 'charmander') {
                 // Player win
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this battle!`)
                 // Player +1 win
+                currentGame.player.wins += 1
                 // Announce win
                 // Reset game
+                resetGame()
+                return
             } 
             break;
 
         case 'bulbasaur':
             if(currentGame.botChoice === 'squirtle') {
                 // Player win
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this battle!`)
                 // Player +1 win
+                currentGame.player.wins += 1
                 // Announce win
                 // Reset game
+                resetGame()
+                return
             }
             if(currentGame.botChoice === 'bulbasaur') {
                 // draw
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. It's a draw`)
+
                 // Announce draw
                 // Reset game
+                resetGame()
+                return
             }
             if(currentGame.botChoice === 'charmander') {
                 // Player lose
+                alert(`You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this battle`)
                 // Bot + 1 win
+                currentGame.bot.wins += 1
                 // Announce loss
                 // Reset game
+                resetGame()
+                return
             } 
             break;
         default:
@@ -144,7 +193,14 @@ function checkWin() {
 }
 
 function resetGame() {
+    botChoice(currentGame)
+}
 
+function botChoice(game) {
+    var choices = game.gameChoices;
+    var randomIndex = Math.floor(Math.random() * choices.length);
+    game.botChoice = choices[randomIndex]
+    console.log(game);
 }
 
 function hide(element) {

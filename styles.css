@@ -16,26 +16,27 @@ body {
     border-radius: 20px;
 }
 .game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: #085a73;
     border: 5px solid #c5395a;
     border-radius: 20px;
 }
 
 .select-game-mode {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
     font-family: 'Archivo Black', sans-serif;
     font-size: xx-large;
     margin: 15px;
+    text-align: center;
 }
 p {
     text-align: center;
     margin-top: 0;
+    padding: 10px;
 }
 
 h3 {
@@ -51,27 +52,37 @@ li {
 
 img {
     width: 120px;
+    margin: auto;
 }
 
 img:hover{
     cursor: pointer;
 }
 
+#classic {
+    height: 230px;
+}
+
+.game-mode-card:hover {
+    cursor: pointer;
+    border: 5px solid black;
+}
+
 .game-mode-card {
-    width: 400px;
-    height: 300px;
+    width: 420px;
+    height: 285px;
     margin-bottom: 20px;
     background-color: #7b2941;
     border-radius: 20px;
 }
 
 .grid-container-sprites {
+    margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 20px;
+    gap: 10px;
     height: 50vh;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -80,10 +91,7 @@ img:hover{
     display: none;
   }
 
-  #pikachu {
-    grid-column: 1/3;
-  }
-
   #geodude {
-    margin-top: 35px;
+    grid-column: 3;
+    margin-top: 70px;
   }
