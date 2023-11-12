@@ -11,11 +11,11 @@
 </head>
 <body>
     <section class="grid-container">
-        <aside class="sidebar left"></aside>
+        <aside class="sidebar left">
+        </aside>
         <main class="game-container">
             <h1 class="title">Rock · Paper · Scissors</h1>
             <h3 class="sub-title">Choose Your Game!</h3>
-
             <section class="select-game-mode">
                 <div id="classic" class="game-mode-card">
                     <h3>Classic</h3>
@@ -31,30 +31,31 @@
                     <p>Choose between Squirtle, Bulbasaur, or Charmander, Pikachu and Geodude.</p>
                     <ul>
                         <li>Squirtle beats Charmander and Geodude, but loses against Bulbasaur and Pikachu </li>
-                        <li>Bulbasaur beats Squirtle, but loses against Charmander</li>
-                        <li>Charmander beats Bulbasar, but loses against Squirtle</li>
-                        <li>Pikachu beats Squirtle, but loses against Geodude</li>
-                        <li>Geodude beats Pikachu, but loses against Squirtle</li>
+                        <li>Bulbasaur beats Squirtle and Geodude, but loses against Charmander and Pikachu</li>
+                        <li>Charmander beats Bulbasaur and Pikachu, but loses against Squirtle and Geodude</li>
+                        <li>Pikachu beats Squirtle and Bulbasaur, but loses against Geodude and Charmander</li>
+                        <li>Geodude beats Pikachu and Charmander, but loses against Squirtle and Bulbasaur</li>
                     </ul>
                 </div>
             </section>
-
             <section  class="grid-container-sprites classic hidden ">
-            <img id="squirtle" src="assets/squirtle.png" alt="squirtle sprite">
-            <img id="bulbasaur" src="assets/bulbasaur.png" alt="bulbasaur sprite">
-            <img id="charmander" src="assets/charmander.png" alt="charmander sprite">
-            </section>
-
+                <img id="squirtle" class="pokemon" src="assets/squirtle.png" alt="squirtle sprite">
+                <img id="bulbasaur" class="pokemon" src="assets/bulbasaur.png" alt="bulbasaur sprite">
+                <img id="charmander" class="pokemon" src="assets/charmander.png" alt="charmander sprite">
+                <button id="change-game-mode">Change Game</button>
+            </section>   
             <section class="grid-container-sprites wild hidden ">
-            <img id="squirtle" src="assets/squirtle.png" alt="squirtle sprite">
-            <img id="bulbasaur" src="assets/bulbasaur.png" alt="bulbasaur sprite">
-            <img id="charmander" src="assets/charmander.png" alt="charmander sprite">
-            <img id="pikachu" src="assets/pikachu.png" alt="pikachu sprite">
-            <img id="geodude" src="assets/geodude.png" alt="geodude sprite">
+                <img id="squirtle" class="pokemon" src="assets/squirtle.png" alt="squirtle sprite">
+                <img id="bulbasaur" class="pokemon" src="assets/bulbasaur.png" alt="bulbasaur sprite">
+                <img id="charmander" class="pokemon" src="assets/charmander.png" alt="charmander sprite">
+                <img id="pikachu" class="pokemon" src="assets/pikachu.png" alt="pikachu sprite">
+                <img id="geodude" class="pokemon grid-col-start" src="assets/geodude.png" alt="geodude sprite">
+                <button id="change-game-mode">Change Game</button>
             </section>
         </main>
         <aside class="sidebar right"></aside>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

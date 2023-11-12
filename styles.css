@@ -9,13 +9,22 @@ body {
     grid-template-columns: 2fr 4fr 2fr;
     /* grid-template-rows: 1fr 1fr 1fr; */
 }
+
 .sidebar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
     background-color: #085a73;
     border: 5px solid #7b2941;
     border-radius: 20px;
 }
+
 .game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #085a73;
     border: 5px solid #c5395a;
     border-radius: 20px;
@@ -25,6 +34,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto;
 }
 
 h1 {
@@ -35,8 +45,8 @@ h1 {
 }
 p {
     text-align: center;
-    margin-top: 0;
-    padding: 10px;
+    margin: 0;
+    padding: 5px;
 }
 
 h3 {
@@ -55,17 +65,21 @@ img {
     margin: auto;
 }
 
-img:hover{
+.pokemon:hover{
     cursor: pointer;
 }
 
 #classic {
-    height: 230px;
+    height: 210px;
+}
+
+#wild {
+    height: 350px;
 }
 
 .game-mode-card:hover {
     cursor: pointer;
-    border: 5px solid black;
+    border: 3px solid white;
 }
 
 .game-mode-card {
@@ -77,21 +91,43 @@ img:hover{
 }
 
 .grid-container-sprites {
-    margin-top: 50px;
+    margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
-    height: 50vh;
+    gap: 30px;
+    padding: 10px;
     justify-content: center;
     align-items: center;
 }
 
+#change-game-mode {
+    grid-column: 2;
+    padding: 5px;
+    background-color: #7b2941;
+    color: #8bd5ee;
+    border-radius: 20px;
+    
+}
+
+#change-game-mode:hover{
+    cursor: pointer;
+    border-color: white;
+}
+
+.battle-sequence {
+    grid-template-columns: 1fr 1fr;
+}
+
 .hidden {
     display: none;
-  }
+}
 
-  #geodude {
+.grid-col-start {
     grid-column: 3;
-    margin-top: 70px;
-  }
+}
+
+.trainer-sprite {
+    width: 120px;
+    height: 215px
+}
+
