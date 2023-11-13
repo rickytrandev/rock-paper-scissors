@@ -1,0 +1,133 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #8bd5ee;
+    background-color: black;
+}
+.grid-container {
+    display: grid;
+    gap: .5em;
+    grid-template-columns: 2fr 4fr 2fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+}
+
+.sidebar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #085a73;
+    border: 5px solid #7b2941;
+    border-radius: 20px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #085a73;
+    border: 5px solid #c5395a;
+    border-radius: 20px;
+}
+
+.select-game-mode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: xx-large;
+    margin: 15px;
+    text-align: center;
+}
+p {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+}
+
+h3 {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+li {
+    font-size: small;
+    padding-right: 10px;
+}
+
+img {
+    width: 120px;
+    margin: auto;
+}
+
+.pokemon:hover{
+    cursor: pointer;
+}
+
+#classic {
+    height: 210px;
+}
+
+#wild {
+    height: 350px;
+}
+
+.game-mode-card:hover {
+    cursor: pointer;
+    border: 3px solid white;
+}
+
+.game-mode-card {
+    width: 420px;
+    height: 285px;
+    margin-bottom: 20px;
+    background-color: #7b2941;
+    border-radius: 20px;
+}
+
+.grid-container-sprites {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#change-game-mode {
+    grid-column: 2;
+    padding: 5px;
+    background-color: #7b2941;
+    color: #8bd5ee;
+    border-radius: 20px;
+    
+}
+
+#change-game-mode:hover{
+    cursor: pointer;
+    border-color: white;
+}
+
+.battle-sequence {
+    grid-template-columns: 1fr 1fr;
+}
+
+.hidden {
+    display: none;
+}
+
+.grid-col-start {
+    grid-column: 3;
+}
+
+.trainer-sprite {
+    width: 120px;
+    height: 215px
+}
+
