@@ -74,28 +74,9 @@ function handleEvent(event) {
     }
 }
 
-function loseLives(battler) {
-    // console.log(currentGame[battler].lives);
-    currentGame[battler].lives -= 1
-        if (currentGame[battler].lives === 0) {
-            if (battler === "player") {
-                console.log(`You lost to ${currentGame.bot.name}.`);
-                currentGame.bot.wins += 1
-                document.getElementById('bot-wins').innerHTML = `Wins: ${currentGame.bot.wins}`
-            } 
-            else {
-                console.log(`You just beat ${currentGame.bot.name}`);
-                currentGame.player.wins += 1
-                document.getElementById('player-wins').innerHTML = `Wins: ${currentGame.player.wins}`
-            }
-        }
-    console.log(`${battler} lives: ${currentGame[battler].lives}`);
-}
-
 function createPlayer() {
     var player = {
         name: 'Trainer',
-        lives: 5,
         wins: 0,
     }
     playerCard.innerHTML = 
@@ -110,7 +91,6 @@ function createPlayer() {
 function createBot() {
     var bot = {
         name: 'Jarvis',
-        lives: 5,
         wins: 0,
     }
     botCard.innerHTML =
@@ -141,9 +121,10 @@ function checkWin() {
         case 'charmander':
             if(currentGame.botChoice === 'squirtle' || currentGame.botChoice === 'geodude') {
                 // Player lose
-                loseLives("player")
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round.`
                 // Bot + 1 win
+                currentGame.bot.wins += 1
+
                 // Announce loss
                 // Reset game
                 return
@@ -152,7 +133,7 @@ function checkWin() {
                 // Player win
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
                 // Player +1 win
-                loseLives("bot")
+                currentGame.player.wins += 1
                 // Announce win
                 // Reset game
                 return
@@ -178,7 +159,7 @@ function checkWin() {
                 // Player lose
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round.`
                 // Bot + 1 win
-                loseLives("player")
+                currentGame.bot.wins += 1
                 // Announce loss
                 // Reset game
                 return
@@ -187,7 +168,7 @@ function checkWin() {
                 // Player win
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
                 // Player +1 win
-                loseLives("bot")
+                currentGame.player.wins += 1
                 // Announce win
                 // Reset game
                 return
@@ -199,7 +180,7 @@ function checkWin() {
                 // Player win
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
                 // Player +1 win
-                loseLives("bot")
+                currentGame.player.wins += 1
                 // Announce win
                 // Reset game
                 return
@@ -215,7 +196,7 @@ function checkWin() {
                 // Player lose
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round`
                 // Bot + 1 win
-                loseLives("player")
+                currentGame.bot.wins += 1
                 // Announce loss
                 // Reset game
                 return
@@ -227,7 +208,7 @@ function checkWin() {
                 // Player lose
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round.`
                 // Bot + 1 win
-                loseLives("player")
+                currentGame.bot.wins += 1
                 // Announce loss
                 // Reset game
                 return
@@ -236,7 +217,7 @@ function checkWin() {
                 // Player win
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
                 // Player +1 win
-                loseLives("bot")
+                currentGame.player.wins += 1
                 // Announce win
                 // Reset game
                 return
@@ -255,7 +236,7 @@ function checkWin() {
                 // Player lose
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round.`
                 // Bot + 1 win
-                loseLives("player")
+                currentGame.bot.wins += 1
                 // Announce loss
                 // Reset game
                 return
@@ -264,7 +245,7 @@ function checkWin() {
                 // Player win
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
                 // Player +1 win
-                loseLives("bot")
+                currentGame.player.wins += 1
                 // Announce win
                 // Reset game
                 return
@@ -285,6 +266,8 @@ function checkWin() {
 
 function resetGame() {
     botChoice(currentGame)
+    document.querySelector("#player-wins").innerText = `Wins: ${currentGame.player.wins}`
+    document.querySelector("#bot-wins").innerText = `Wins: ${currentGame.bot.wins}`
     subTitle.innerText = 'Choose Your Pokémon!'
     spritesContainer[currentGame.gameTypeID].classList.remove('battle-sequence')
     spritesContainer[currentGame.gameTypeID].innerHTML = ""
