@@ -8,7 +8,6 @@ var botCard = document.querySelector('.right')
 var spritesContainer = document.querySelectorAll('.grid-container-sprites')
 var currentGame;
 
-
 gameContainer.addEventListener('click', handleEvent)
 window.addEventListener('load', createGame())
 
@@ -19,19 +18,15 @@ function handleEvent(event) {
             case 'squirtle':
                 currentGame.playerChoice = 'squirtle'
                 break;
-
             case 'bulbasaur':
                 currentGame.playerChoice = 'bulbasaur'
                 break;
-
             case 'charmander':
                 currentGame.playerChoice = 'charmander'
-                break;
-                
+                break;                
             case 'pikachu':
                 currentGame.playerChoice = 'pikachu'
                 break;
-
             case 'geodude':
                 currentGame.playerChoice = 'geodude'
                 break;
@@ -81,9 +76,9 @@ function createPlayer() {
     }
     playerCard.innerHTML = 
     `<div>
-        <h3>${player.name}</h3>
-        <img class="trainer-sprite" src="assets/trainer-sprite.png" alt="trainer sprite">
-        <p id="player-wins">Wins: ${player.wins}</p>
+    <h3>${player.name}</h3>
+    <img class="trainer-sprite" src="assets/trainer-sprite.png" alt="trainer sprite">
+    <p id="player-wins">Wins: ${player.wins}</p>
     </div>`
     return player
 }
@@ -95,9 +90,9 @@ function createBot() {
     }
     botCard.innerHTML =
     `<div>
-        <h3>${bot.name}</h3>
-        <img class="trainer-sprite" src="assets/trainer-sprite-2.png" alt="trainer sprite">
-        <p id="bot-wins">Wins: ${bot.wins}</p>
+    <h3>${bot.name}</h3>
+    <img class="trainer-sprite" src="assets/trainer-sprite-2.png" alt="trainer sprite">
+    <p id="bot-wins">Wins: ${bot.wins}</p>
     </div>`
     return bot
 }
@@ -114,147 +109,92 @@ function createGame(player, bot) {
         botChoice: '',
     }
     currentGame = game
+    return game
 }
 
 function checkWin() {
     switch (currentGame.playerChoice) {
         case 'charmander':
-            if(currentGame.botChoice === 'squirtle' || currentGame.botChoice === 'geodude') {
-                // Player lose
+            if (currentGame.botChoice === 'squirtle' || currentGame.botChoice === 'geodude') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round.`
-                // Bot + 1 win
                 currentGame.bot.wins += 1
-
-                // Announce loss
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'bulbasaur' || currentGame.botChoice === 'pikachu') {
-                // Player win
+            if (currentGame.botChoice === 'bulbasaur' || currentGame.botChoice === 'pikachu') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
-                // Player +1 win
                 currentGame.player.wins += 1
-                // Announce win
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'charmander') {
-                // draw
+            if (currentGame.botChoice === 'charmander') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. It's a draw.`
-                // Announce draw
-                // Reset game
                 return
             }
             break;
 
         case 'squirtle':
-            if(currentGame.botChoice === 'squirtle') {
-                // draw
+            if (currentGame.botChoice === 'squirtle') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. It's a draw.`
-                // Announce draw
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'bulbasaur' || currentGame.botChoice === 'pikachu') {
-                // Player lose
+            if (currentGame.botChoice === 'bulbasaur' || currentGame.botChoice === 'pikachu') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round.`
-                // Bot + 1 win
                 currentGame.bot.wins += 1
-                // Announce loss
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'charmander' || currentGame.botChoice === 'geodude') {
-                // Player win
+            if (currentGame.botChoice === 'charmander' || currentGame.botChoice === 'geodude') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
-                // Player +1 win
                 currentGame.player.wins += 1
-                // Announce win
-                // Reset game
                 return
             } 
             break;
 
         case 'bulbasaur':
-            if(currentGame.botChoice === 'squirtle' || currentGame.botChoice === 'geodude') {
-                // Player win
+            if (currentGame.botChoice === 'squirtle' || currentGame.botChoice === 'geodude') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
-                // Player +1 win
                 currentGame.player.wins += 1
-                // Announce win
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'bulbasaur') {
-                // draw
+            if (currentGame.botChoice === 'bulbasaur') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. It's a draw`
-                // Announce draw
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'charmander' || currentGame.botChoice === 'pikachu') {
-                // Player lose
+            if (currentGame.botChoice === 'charmander' || currentGame.botChoice === 'pikachu') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round`
-                // Bot + 1 win
                 currentGame.bot.wins += 1
-                // Announce loss
-                // Reset game
                 return
             } 
             break;
 
         case 'pikachu':
-            if(currentGame.botChoice === 'charmander' || currentGame.botChoice === 'geodude') {
-                // Player lose
+            if (currentGame.botChoice === 'charmander' || currentGame.botChoice === 'geodude') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round.`
-                // Bot + 1 win
                 currentGame.bot.wins += 1
-                // Announce loss
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'bulbasaur' || currentGame.botChoice === 'squirtle') {
-                // Player win
+            if (currentGame.botChoice === 'bulbasaur' || currentGame.botChoice === 'squirtle') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
-                // Player +1 win
                 currentGame.player.wins += 1
-                // Announce win
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'pikachu') {
-                // draw
+            if (currentGame.botChoice === 'pikachu') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. It's a draw.`
-                // Announce draw
-                // Reset game
                 return
             }
             break;
 
         case 'geodude':
-            if(currentGame.botChoice === 'squirtle' || currentGame.botChoice === 'bulbasaur') {
-                // Player lose
+            if (currentGame.botChoice === 'squirtle' || currentGame.botChoice === 'bulbasaur') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You lose this round.`
-                // Bot + 1 win
                 currentGame.bot.wins += 1
-                // Announce loss
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'charmander' || currentGame.botChoice === 'pikachu') {
-                // Player win
+            if (currentGame.botChoice === 'charmander' || currentGame.botChoice === 'pikachu') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. You win this round!`
-                // Player +1 win
                 currentGame.player.wins += 1
-                // Announce win
-                // Reset game
                 return
             }
-            if(currentGame.botChoice === 'geodude') {
-                // draw
+            if (currentGame.botChoice === 'geodude') {
                 subTitle.innerText = `You chose ${currentGame.playerChoice}, Jarvis chose ${currentGame.botChoice}. It's a draw.`
-                // Announce draw
-                // Reset game
                 return
             }
             break;
@@ -272,7 +212,7 @@ function resetGame() {
     spritesContainer[currentGame.gameTypeID].classList.remove('battle-sequence')
     spritesContainer[currentGame.gameTypeID].innerHTML = ""
     for (var i = 0; i < currentGame.gameChoices.length; i++) {
-        spritesContainer[currentGame.gameTypeID].innerHTML += `<img id="${currentGame.gameChoices[i]}" src="assets/${currentGame.gameChoices[i]}.png" alt="${currentGame.gameChoices[i]} sprite"></img>`
+        spritesContainer[currentGame.gameTypeID].innerHTML += `<img class="pokemon" id="${currentGame.gameChoices[i]}" src="assets/${currentGame.gameChoices[i]}.png" alt="${currentGame.gameChoices[i]} sprite"></img>`
     }
     spritesContainer[currentGame.gameTypeID].innerHTML += `<button id="change-game-mode">Change Game</button>`
     document.getElementById('geodude').classList.add('grid-col-start')
@@ -287,10 +227,9 @@ function botChoice(game) {
 function fightSequence() {
     spritesContainer[currentGame.gameTypeID].classList.add('battle-sequence')
     spritesContainer[currentGame.gameTypeID].innerHTML = ""
-    spritesContainer[currentGame.gameTypeID].innerHTML = `
-        <img id="${currentGame.playerChoice}" src="assets/${currentGame.playerChoice}.png" alt="${currentGame.playerChoice} sprite">
-        <img id="${currentGame.botChoice}" src="assets/${currentGame.botChoice}.png" alt="${currentGame.botChoice} sprite">
-    `
+    spritesContainer[currentGame.gameTypeID].innerHTML = 
+    `<img id="${currentGame.playerChoice}" src="assets/${currentGame.playerChoice}.png" alt="${currentGame.playerChoice} sprite">
+    <img id="${currentGame.botChoice}" src="assets/${currentGame.botChoice}.png" alt="${currentGame.botChoice} sprite">`
 }
 
 function hide(element) {
