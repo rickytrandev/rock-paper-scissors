@@ -1,5 +1,5 @@
 ### Abstract:
-The classic Rock Paper Scissors game with a nerdy twist 🤓! The user will be able to choose their "figher" to go against the computer's randomly chosen "figher".
+The classic Rock Paper Scissors game with a nerdy twist 🤓! The user can choose their "fighter" to go against the computer's randomly chosen "fighter".
 
 ### Installation Instructions:
 - Fork this project to your own GitHub account
